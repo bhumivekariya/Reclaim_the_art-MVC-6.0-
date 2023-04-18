@@ -1,0 +1,45 @@
+﻿@using Reclaim_the_art.Areas.Country.Models
+@{
+    ViewData["Title"] = "CountryAddEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@model CountryModel
+<h4>@TempData["TD"]</h4>
+
+<form method="post" asp-area="Country" asp-controller="Country" asp-action="Save">
+    @Html.HiddenFor(x=>x.CountryID)
+    <div class="row match-height">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Country Add/Edit</h4>
+                </div>
+                <div class="card-block">
+                    <div class="card-body">
+                        <h5 class="mt-2">Admin Name</h5>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Country Name" asp-for="CountryName">
+                        </fieldset>
+
+                        <h5 class="mt-2">Country Code</h5>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Country Code" asp-for="CountryCode">
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12" style="padding-left: 37%;">
+            <input type="submit" class="btn btn-dark  mr-1 mb-1" value="SAVE" />
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12">
+            <a asp-area="Country" asp-controller="Country" asp-action="Cancle" class="btn btn-danger  mr-1 mb-1">CANCLE</a>
+        </div>
+    </div>
+</form>
+

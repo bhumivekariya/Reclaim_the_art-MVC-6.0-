@@ -1,0 +1,60 @@
+﻿@using Reclaim_the_art.Areas.Bill.Models
+@{
+    ViewData["Title"] = "BillAddEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model BillModel
+<h4>@TempData["TD"]</h4>
+<form method="post" asp-area="Bill" asp-controller="Bill" asp-action="Save">
+    @Html.HiddenFor(x=>x.BillID)
+    <div class="row match-height">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Bill Add/Edit</h4>
+                </div>
+                <div class="card-block">
+                    <div class="card-body">
+                        <h5 class="mt-2">Bill Amount</h5>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Admin Name" asp-for="BillAmount">
+                        </fieldset>
+
+                        <h5 class="mt-2">Bill Status</h5>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter User Name" asp-for="BillStatus">
+                        </fieldset>
+                        <h5 class="mt-2">CustomerID</h5>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter password" asp-for="CustomerID">
+                        </fieldset>
+                        <h5 class="mt-2">CountryID</h5>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter password" asp-for="CountryID">
+                        </fieldset>
+                        <h5 class="mt-2">StateID</h5>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter password" asp-for="StateID">
+                        </fieldset>
+                        <h5 class="mt-2">CityID</h5>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter password" asp-for="CityID">
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12" style="padding-left: 37%;">
+            <input type="submit" class="btn btn-dark  mr-1 mb-1" value="SAVE" />
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12">
+            <a asp-area="Bill" asp-controller="Bill" asp-action="Cancle" class="btn btn-danger  mr-1 mb-1">CANCLE</a>
+        </div>
+    </div>
+</form>
+

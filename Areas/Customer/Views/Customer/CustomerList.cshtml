@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "CustomerList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using System.Data
+@model DataTable
+
+<div>
+	<a class="btn btn-secondary btn-min-width mr-1 mb-1" asp-area="Customer" asp-controller="Customer" asp-action="Add">Add Customer</a>
+</div>
+
+<br />
+
+<div>
+	<div class="card">
+		<div class="card-header">
+			<h4 class="card-title">Customer List</h4>
+			<a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+			<div class="heading-elements">
+				<ul class="list-inline mb-0">
+					<li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+					<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+					<li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+					<li><a data-action="close"><i class="ft-x"></i></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="card-content collapse show">
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Name</th>
+							<th scope="col">Password</th>
+							<th scope="col">Creation Date</th>
+							<th scope="col">Modification Date</th>
+							<th scope ="col">Action</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (DataRow dr in Model.Rows)
+						{
+							<tr>
+								<td>@dr["CustomerName"]</td>
+								<td>@dr["CustomerPassword"]</td>
+								<td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
+								<td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
+								<td>
+									<form method="post" asp-area="Customer" asp-controller="Customer" asp-action="Delete">
+										<input type="hidden" name="CustomerID" value="@Convert.ToInt32(dr["CustomerID"]).ToString()">
+										<button type="submit" class="btn btn-danger  mr-1 mb-1" onclick="fun1()">Delete</button>
+									</form>
+								</td>
+								<td>
+									<a type="submit" class="btn btn-dark  mr-1 mb-1" asp-area="Customer" asp-controller="Customer" asp-action="Add" asp-route-CustomerID="@Convert.ToInt32(dr["CustomerID"]).ToString()">Edit</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts{
+
+	<script>
+		function fun1() {
+			if (confirm("Are you sure want to delete?")) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	</script>
+}
