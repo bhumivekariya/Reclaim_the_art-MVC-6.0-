@@ -30,10 +30,11 @@
 					<thead>
 						<tr>
 							<th scope="col">Quantity</th>
-							<th scope="col">CreationDate</th>
-							<th scope="col">ModificationDate</th>
-							<th scope="col">BillID</th>
-							<th scope="col">ProductID</th>
+							<th scope="col">Bill ID</th>
+							<th scope="col">Product ID</th>
+							<th scope="col">Creation Date</th>
+							<th scope="col">Modification Date</th>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -41,10 +42,11 @@
 						{
 							<tr>
 								<td>@dr["Quantity"]</td>
-								<td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
-								<td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
 								<td>@dr["BillID"]</td>
 								<td>@dr["ProductID"]</td>
+								<td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
+								<td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
+								
 							</tr>
 						}
 					</tbody>

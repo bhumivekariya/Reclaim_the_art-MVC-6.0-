@@ -30,14 +30,14 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th scope="col">BillAmount</th>
-							<th scope="col">BillStatus</th>
-							<th scope="col">CustomerID</th>
-							<th scope="col">CreationDate</th>
-							<th scope="col">ModificationDate</th>
-							<th scope="col">CountryID</th>
-							<th scope="col">StateID</th>
-							<th scope="col">CityID</th>
+							<th scope="col">Amount</th>
+							<th scope="col">Status</th>
+							<th scope="col">Customer ID</th>
+							<th scope="col">Country ID</th>
+							<th scope="col">State ID</th>
+							<th scope="col">City ID</th>
+							<th scope="col">Creation Date</th>
+							<th scope="col">Modification Date</th>
 							<th scope="col">Delete</th>
 							<th scope="col">Edit</th>
 						</tr>
@@ -48,11 +48,11 @@
 								<td>@dr["BillAmount"]</td>
 								<td>@dr["BillStatus"]</td>
 								<td>@dr["CustomerID"]</td>
-								<td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
-								<td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
 								<td>@dr["CountryID"]</td>
 								<td>@dr["StateID"]</td>
 								<td>@dr["CityID"]</td>
+								<td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
+								<td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
 								<td>
 									<form method="post" asp-area="Bill" asp-controller="Bill" asp-action="Delete">
 										<input type="hidden" name="BillID" value="@Convert.ToInt32(dr["BillID"]).ToString()">

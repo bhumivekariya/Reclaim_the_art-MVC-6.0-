@@ -14,13 +14,13 @@
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">City Add/Edit</h4>
+                    <h4 class="card-title">City Form</h4>
                 </div>
                 <div class="card-block">
                     <div class="card-body">
-                        <h5 class="mt-2">City Name</h5>
+                        <h5 class="mt-2">Name</h5>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter City Name" asp-for="CityName">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Name" asp-for="CityName">
                         </fieldset>
                         <h5 class="mt-2">Pincode</h5>
                         <fieldset class="form-group">
@@ -46,12 +46,11 @@
 
 
     <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12" style="padding-left: 37%;">
+        <div class="col-xl-6 col-lg-6 col-md-12" >
             <input type="submit" class="btn btn-dark  mr-1 mb-1" value="SAVE" />
+            <a asp-area="City" asp-controller="City" asp-action="Cancel" class="btn btn-danger  mr-1 mb-1">CANCEL</a>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-12">
-            <a asp-area="City" asp-controller="City" asp-action="Cancle" class="btn btn-danger  mr-1 mb-1">CANCLE</a>
-        </div>
+       
     </div>
 </form>
 
