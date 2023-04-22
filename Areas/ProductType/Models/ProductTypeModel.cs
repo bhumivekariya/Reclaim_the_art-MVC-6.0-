@@ -9,4 +9,9 @@
 
 
     }
+    public class ProductTypeDropDownModel
+    {
+        public int ProductTypeID { get; set; }
+        public string ProductType { get; set; }
+    }
 }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Reclaim_the_art.Areas.Customer.Models;
 using Reclaim_the_art.Areas.Product.Models;
+using Reclaim_the_art.Areas.ProductType.Models;
 using System.Data;
 
 namespace Reclaim_the_art.Areas.Product.Controllers
@@ -61,6 +63,59 @@ namespace Reclaim_the_art.Areas.Product.Controllers
         #region ADD
         public IActionResult Add(int? ProductID)
         {
+            #region Customer
+            string Con_str = this.Configuration.GetConnectionString("myConnectionString");
+
+            //Prepare Connection
+            SqlConnection Con = new SqlConnection(Con_str);
+            Con.Open();
+
+            //Prepare Command
+            SqlCommand Command = Con.CreateCommand();
+            Command.CommandType = CommandType.StoredProcedure;
+            Command.CommandText = "PR_CustomerName_SelectForDropDown";
+            DataTable dataTable = new DataTable();
+            SqlDataReader rdr = Command.ExecuteReader();
+            dataTable.Load(rdr);
+
+            List<CustomerNameDropDownModel> list = new List<CustomerNameDropDownModel>();
+            foreach (DataRow datarow in dataTable.Rows)
+            {
+                CustomerNameDropDownModel customerlist = new CustomerNameDropDownModel();
+                customerlist.CustomerID = Convert.ToInt32(datarow["CustomerID"]);
+                customerlist.CustomerName = (string)datarow["CustomerName"];
+                list.Add(customerlist);
+            }
+            ViewBag.CustomerList = list;
+
+            #endregion
+
+            #region Product
+            string Con_str1 = this.Configuration.GetConnectionString("myConnectionString");
+
+            //Prepare Connection
+            SqlConnection Con1 = new SqlConnection(Con_str1);
+            Con1.Open();
+
+            //Prepare Command
+            SqlCommand Command1 = Con.CreateCommand();
+            Command1.CommandType = CommandType.StoredProcedure;
+            Command1.CommandText = "PR_ProductTypeName_SelectForDropDown";
+            DataTable dataTable1 = new DataTable();
+            SqlDataReader rdr1 = Command1.ExecuteReader();
+            dataTable1.Load(rdr1);
+
+            List<ProductTypeDropDownModel> list1 = new List<ProductTypeDropDownModel>();
+            foreach (DataRow datarow in dataTable1.Rows)
+            {
+                ProductTypeDropDownModel ProductTypelist = new ProductTypeDropDownModel();
+                ProductTypelist.ProductTypeID = Convert.ToInt32(datarow["ProductTypeID"]);
+                ProductTypelist.ProductType = (string)datarow["ProductType"];
+                list1.Add(ProductTypelist);
+            }
+            ViewBag.ProductTypelist = list1;
+
+            #endregion
 
             if (ProductID != null)
             {

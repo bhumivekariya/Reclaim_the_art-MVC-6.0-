@@ -35,8 +35,8 @@
 							<th scope="col">Discription</th>
 							<th scope="col">Price</th>
 							<th scope="col">Discount</th>
-							<th scope="col">ProductType ID</th>
-							<th scope="col">Customer ID</th>
+							<th scope="col">ProductType</th>
+							<th scope="col">Customer Name</th>
 							<th scope="col">Creation Date</th>
 							<th scope="col">Modification Date</th>
 							<th scope="col" class="text-center" colspan="2">Action</th>
@@ -51,8 +51,8 @@
 								<td>@dr["ProductDiscription"]</td>
 								<td>@dr["ProductPrice"]</td>
 								<td>@dr["ProductDiscount"]</td>
-								<td>@dr["ProductTypeID"]</td>
-								<td>@dr["CustomerID"]</td>
+								<td>@dr["ProductType"]</td>
+								<td>@dr["CustomerName"]</td>
 								<td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
 								<td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
 								<td>

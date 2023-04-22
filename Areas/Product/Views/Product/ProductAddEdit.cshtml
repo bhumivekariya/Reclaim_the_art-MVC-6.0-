@@ -39,13 +39,17 @@
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Discount" asp-for="ProductDiscount">
                         </fieldset>
-                        <h5 class="mt-2">Product Type ID</h5>
+                        <h5 class="mt-2">Product Type</h5>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Product Type ID" asp-for="ProductTypeID">
+                            <select class="form-control" asp-for="ProductTypeID" asp-items="@(new SelectList(ViewBag.ProductTypelist,"ProductTypeID","ProductType"))">
+                                <option>select Product Type</option>
+                            </select>
                         </fieldset>
-                        <h5 class="mt-2">Customer ID</h5>
+                        <h5 class="mt-2">Customer Name</h5>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Customer ID" asp-for="CustomerID">
+                            <select class="form-control" asp-for="CustomerID" asp-items="@(new SelectList(ViewBag.CustomerList,"CustomerID","CustomerName"))">
+                                <option>select Customer Name</option>
+                            </select>
                         </fieldset>
                     </div>
                 </div>
