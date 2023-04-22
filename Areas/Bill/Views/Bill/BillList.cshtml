@@ -21,7 +21,6 @@
 					<li><a data-action="collapse"><i class="ft-minus"></i></a></li>
 					<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
 					<li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-					<li><a data-action="close"><i class="ft-x"></i></a></li>
 				</ul>
 			</div>
 		</div>
@@ -32,14 +31,13 @@
 						<tr>
 							<th scope="col">Amount</th>
 							<th scope="col">Status</th>
-							<th scope="col">Customer ID</th>
-							<th scope="col">Country ID</th>
-							<th scope="col">State ID</th>
-							<th scope="col">City ID</th>
+							<th scope="col">Customer Name</th>
+							<th scope="col">Country Name</th>
+							<th scope="col">State Name</th>
+							<th scope="col">City Name</th>
 							<th scope="col">Creation Date</th>
 							<th scope="col">Modification Date</th>
-							<th scope="col">Delete</th>
-							<th scope="col">Edit</th>
+							<th scope="col" class="text-center" colspan="2">Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,10 +45,10 @@
 							<tr>
 								<td>@dr["BillAmount"]</td>
 								<td>@dr["BillStatus"]</td>
-								<td>@dr["CustomerID"]</td>
-								<td>@dr["CountryID"]</td>
-								<td>@dr["StateID"]</td>
-								<td>@dr["CityID"]</td>
+								<td>@dr["CustomerName"]</td>
+								<td>@dr["CountryName"]</td>
+								<td>@dr["StateName"]</td>
+								<td>@dr["CityName"]</td>
 								<td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
 								<td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
 								<td>

@@ -10,4 +10,9 @@
         public DateTime ModificationDate { get; set; }
 
     }
+    public class CustomerNameDropDownModel
+    {
+        public int CustomerID { get; set; }
+        public string? CustomerName { get; set; }
+    }
 }

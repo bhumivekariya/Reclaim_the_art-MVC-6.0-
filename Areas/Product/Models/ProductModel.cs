@@ -18,6 +18,11 @@ namespace Reclaim_the_art.Areas.Product.Models
         public DateTime CreationDate { get; set; }
         public DateTime ModificationDate { get; set; }
 
+    }
 
+    public class ProductNameDropDownModel
+    {
+        public int ProductID { get; set; }
+        public string? ProductName { get; set; }
     }
 }

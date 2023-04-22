@@ -2,6 +2,8 @@
 using Microsoft.Data.SqlClient;
 using Reclaim_the_art.Areas.Admin.Models;
 using Reclaim_the_art.Areas.BillWiseProduct.Models;
+using Reclaim_the_art.Areas.Customer.Models;
+using Reclaim_the_art.Areas.Product.Models;
 using System.Data;
 
 namespace Reclaim_the_art.Areas.BillWiseProduct.Controllers
@@ -44,6 +46,33 @@ namespace Reclaim_the_art.Areas.BillWiseProduct.Controllers
         #region ADD
         public IActionResult Add(int? BillWiseProductID)
         {
+
+            #region Product
+            string Con_str = this.Configuration.GetConnectionString("myConnectionString");
+
+            //Prepare Connection
+            SqlConnection Con = new SqlConnection(Con_str);
+            Con.Open();
+
+            //Prepare Command
+            SqlCommand Command = Con.CreateCommand();
+            Command.CommandType = CommandType.StoredProcedure;
+            Command.CommandText = "PR_ProductName_SelectForDropDown";
+            DataTable dataTable = new DataTable();
+            SqlDataReader rdr = Command.ExecuteReader();
+            dataTable.Load(rdr);
+
+            List<ProductNameDropDownModel> list = new List<ProductNameDropDownModel>();
+            foreach (DataRow datarow in dataTable.Rows)
+            {
+                ProductNameDropDownModel productlist = new ProductNameDropDownModel();
+                productlist.ProductID = Convert.ToInt32(datarow["ProductID"]);
+                productlist.ProductName = (string)datarow["ProductName"];
+                list.Add(productlist);
+            }
+            ViewBag.productlist = list;
+
+            #endregion
 
             if (BillWiseProductID != null)
             {

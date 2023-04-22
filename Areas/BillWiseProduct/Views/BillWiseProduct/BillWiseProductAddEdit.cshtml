@@ -21,13 +21,15 @@
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Quantity" asp-for="Quantity">
                         </fieldset>
 
-                        <h5 class="mt-2">Bill ID</h5>
+                        <h5 class="mt-2">Bill Status</h5>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Bill ID" asp-for="BillID">
+                            <input type="text" class="form-control" id="placeholderInput" placeholder="Paid / Remain" asp-for="BillID">
                         </fieldset>
-                        <h5 class="mt-2">Product ID</h5>
+                        <h5 class="mt-2">Product Name</h5>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Product ID" asp-for="ProductID">
+                            <select class="form-control" asp-for="ProductID" asp-items="@(new SelectList(ViewBag.productlist,"ProductID","ProductName"))">
+                                <option>select Product Name</option>
+                            </select>
                         </fieldset>
                     </div>
                 </div>

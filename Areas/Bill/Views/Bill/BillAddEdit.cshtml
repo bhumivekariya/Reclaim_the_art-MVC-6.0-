@@ -25,21 +25,29 @@
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Status" asp-for="BillStatus">
                         </fieldset>
-                        <h5 class="mt-2">Customer ID</h5>
+                        <h5 class="mt-2">Customer Name</h5>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Customer ID" asp-for="CustomerID">
+                            <select class="form-control" asp-for="CustomerID" asp-items="@(new SelectList(ViewBag.CustomerList,"CustomerID","CustomerName"))">
+                                <option>select Customer Name</option>
+                            </select>
                         </fieldset>
                         <h5 class="mt-2">Country ID</h5>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Country ID" asp-for="CountryID">
+                            <select class="form-control" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName")) " onchange="fnOnStateChange();">
+                                <option>select country</option>
+                            </select>
                         </fieldset>
                         <h5 class="mt-2">State ID</h5>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter State ID" asp-for="StateID">
+                            <select class="form-control" asp-for="StateID" asp-items="@(new SelectList(ViewBag.StateList,"StateID","StateName"))" onchange="fnOnCityChange();">
+                                <option>select State</option>
+                            </select>
                         </fieldset>
                         <h5 class="mt-2">City ID</h5>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="placeholderInput" placeholder="Enter City ID" asp-for="CityID">
+                            <select class="form-control" asp-for="CityID" asp-items="@(new SelectList(ViewBag.CityList,"CityID","CityName"))">
+                                <option>select City</option>
+                            </select>
                         </fieldset>
                     </div>
                 </div>
@@ -56,3 +64,68 @@
     </div>
 </form>
 
+
+
+@section Scripts{
+    <script>
+        function fnOnStateChange() {
+            var CountryID = $("#CountryID").val();
+
+            if (CountryID !== "") {
+                $("#StateID").empty();
+                $("#StateID").append($("<option></option>").val("").html("select State"));
+                $.ajax(
+                    {
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        url: "@Url.Action("DropDownByCountry","Bill")" + "?&CountryID=" + CountryID,
+                        data: {},
+                        dataType: "json",
+                        success: function (Result) {
+                            $.each(Result,
+                                function (key, value) {
+                                    $("#StateID").append($("<option></option>").val(value.stateID).html(value.stateName));
+                                });
+                        },
+                        error: function (r) {
+                            alert("Error while loading dropdown.");
+                        }
+                    });
+            }
+            else {
+                $("#StateID").empty();
+                $("#StateID").append($("<option></option>").val("").html("select State"));
+            }
+        }
+
+        function fnOnCityChange() {
+            var StateID = $("#StateID").val();
+
+            if (StateID !== "") {
+                $("#CityID").empty();
+                $("#CityID").append($("<option></option>").val("").html("select City"));
+                $.ajax(
+                    {
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        url: "@Url.Action("DropDownByState","Bill")" + "?&StateID=" + StateID,
+                        data: {},
+                        dataType: "json",
+                        success: function (Result) {
+                            $.each(Result,
+                                function (key, value) {
+                                    $("#CityID").append($("<option></option>").val(value.cityID).html(value.cityName));
+                                });
+                        },
+                        error: function (r) {
+                            alert("Error while loading dropdown.");
+                        }
+                    });
+            }
+            else {
+                $("#CityID").empty();
+                $("#CityID").append($("<option></option>").val("").html("select City"));
+            }
+        }
+    </script>
+}
