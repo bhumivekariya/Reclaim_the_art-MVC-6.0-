@@ -20,11 +20,13 @@
                         <h5 class="mt-2">Name</h5>
                       <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Name" asp-for="CustomerName">
+                            <span asp-validation-for="CustomerName" class="text-danger"></span>
                       </fieldset>
 
                         <h5 class="mt-2">Password</h5>
                       <fieldset class="form-group">
                             <input type="password" class="form-control" id="placeholderInput" placeholder="Enter Password" asp-for="CustomerPassword">
+                            <span asp-validation-for="CustomerPassword" class="text-danger"></span>
                       </fieldset>
                   </div>
               </div>
@@ -41,3 +43,8 @@
 </div>
 </form>
 
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

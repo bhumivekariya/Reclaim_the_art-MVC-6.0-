@@ -21,6 +21,8 @@
                         <h5 class="mt-2">Product Type</h5>
                       <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Product Type" asp-for="ProductType">
+                            <span asp-validation-for="ProductType" class="text-danger"></span>
+
                       </fieldset>
                   </div>
               </div>
@@ -37,3 +39,9 @@
 </div>
 </form>
 
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

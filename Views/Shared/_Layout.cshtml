@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Reclaim_the_art</title>
-    
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Reclaim_the_art.styles.css" asp-append-version="true" />
@@ -38,7 +38,7 @@
 </head>
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar " style="max-width:100%;  overflow-x: hidden;" data-open="click" data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
 
-   
+
     <div class="row">
         <div class="col-3 float-right">
             <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
@@ -52,8 +52,8 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div class="arrow_box_right">
-                                            <a class="dropdown-item" href="#"><span class="avatar avatar-online"><img src="~/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><span class="user-name text-bold-700 ml-1">John Doe</span></span></a>
-                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="ft-power"></i> Logout</a>
+                                            <a class="dropdown-item" href="#"><span class="avatar avatar-online"><img src="~/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><span class="user-name text-bold-700 ml-1">Bhumi</span></span></a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" asp-area="AdminLogin" asp-controller="AdminLogin" asp-action="Logout"><i class="ft-power"></i> Logout</a>
                                         </div>
                                     </div>
                                 </li>
@@ -64,16 +64,16 @@
             </nav>
         </div>
     </div>
-        
-     
+
+
 
     <div class="row">
         <div class="col-3">
-            <div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true" data-img="theme-assets/images/backgrounds/02.jpg">
+            <div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true" data-img="~/theme-assets/images/backgrounds/02.jpg">
                 <div class="navbar-header">
                     <ul class="nav navbar-nav flex-row">
                         <li class="nav-item mr-auto">
-                            <a class="navbar-brand" >
+                            <a class="navbar-brand">
                                 <img class="brand-logo" alt="Chameleon admin logo" src="~/theme-assets/images/logo/ART.png" />
                                 @*<h3 class="brand-text">Reclaim_The_Art</h3>*@
                             </a>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="main-menu-content">
                     <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-           
+
                         <li class=" nav-item">
                             <a asp-area="Admin" asp-controller="Admin" asp-action="Index"><i class="la la-user"></i><span class="menu-title" data-i18n="">Admin</span></a>
                         </li>
@@ -138,26 +138,28 @@
             </div>
 
         </div>
-        <div class="col-9" style="padding-left: 0px; ">
-            <main role="main" style="padding-right: 20px;">
-                @RenderBody()
-            </main>
-        </div>
-    </div>
-
 
     
+            <div class="col-9" style="padding-left: 0px; ">
+                <main role="main" style="padding-right: 20px;">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
 
 
 
 
-  
 
-  
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+
+
+
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
 
 
 

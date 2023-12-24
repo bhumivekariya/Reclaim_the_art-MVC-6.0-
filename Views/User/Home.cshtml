@@ -3,5 +3,47 @@
     ViewData["Title"] = "User";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-<h1>Home</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
+
+<div class="row">
+    <div class="col">
+        <div class="w3-content w3-section" style="max-width:700px; float: left">
+            <img class="mySlides w3-animate-fading" src="https://th.bing.com/th/id/OIP.ptkI6BhTiKr5SKbrXjX_GQHaE8?w=298&h=199&c=7&r=0&o=5&dpr=1.5&pid=1.7" style="width:100%" height="400px">
+           @* <img class="mySlides w3-animate-fading" src="https://img1.wsimg.com/isteam/ip/f51fb6b7-56e5-4f5a-96e9-2dd91437ba7a/PS2_0101.png/:/rs=w:984,h:787" style="width:100%" height="400px">
+            <img class="mySlides w3-animate-fading" src="https://img1.wsimg.com/isteam/ip/f51fb6b7-56e5-4f5a-96e9-2dd91437ba7a/ols/PS2_0035.jpg/:/rs=w:984,h:656" style="width:100%" height="400px">
+            <img class="mySlides w3-animate-fading" src="https://img1.wsimg.com/isteam/ip/f51fb6b7-56e5-4f5a-96e9-2dd91437ba7a/ols/_MG_5532.jpg/:/rs=w:1160,h:773" style="width:100%" height="400px">*@
+        </div>
+    </div>
+    <div class="col" style="padding-top : 120px;">
+        <h1 style="color: black; text-align: center;">
+            USE CODE<br/> "MADEININDIA"<br/>
+            TO AVAIL<br />
+            FLAT 5% DISCOUNT
+        </h1>
+    </div>
+</div>
+<h1 style ="color: black; text-align: center; font-size : 50px;">
+    LETS INVEST IN OURSELVES AND PLANET EARTH<br/> BY CHOOSING SUSTAINABLE GOODS
+</h1>
+
+
+
+
+
+<script>
+    var myIndex = 0;
+    carousel();
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 9000);
+    }
+</script>

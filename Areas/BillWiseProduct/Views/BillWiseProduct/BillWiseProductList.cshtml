@@ -29,8 +29,8 @@
 					<thead>
 						<tr>
 							<th scope="col">Quantity</th>
-							<th scope="col">Product Name</th>
-							<th scope="col">Bill Status</th>
+							@* <th scope="col">Product Name</th> *@
+							@* <th scope="col">Bill Status</th> *@
 							<th scope="col">Creation Date</th>
 							<th scope="col">Modification Date</th>
 							
@@ -41,8 +41,8 @@
 						{
 							<tr>
 								<td>@dr["Quantity"]</td>
-								<td>@dr["ProductName"]</td>
-								<td>@dr["BillStatus"]</td>
+								@* <td>@dr["ProductName"]</td> *@
+								@* <td>@dr["BillStatus"]</td> *@
 								<td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
 								<td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
 								

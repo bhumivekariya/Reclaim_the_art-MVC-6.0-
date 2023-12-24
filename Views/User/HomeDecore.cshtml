@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "HomeDecore";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@using System.Data
+@model DataTable
+<div>
+    <!-- ================ category section start ================= -->
+    <section class="section-margin--small mb-5">
+        <div class="container">
+
+            <!-- Start Best Seller -->
+            <section class="lattest-product-area pb-40 category-list">
+                <div class="row">
+                    @foreach (DataRow dr in Model.Rows)
+                    {
+                        @if (dr["ProductTypeID"].ToString() == "2")
+                        {
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card text-center card-product">
+                                    <div class="card-product__img">
+                                        <img src="@dr["ProductPicture"]" width="250px" height="250px" />
+                                        <ul class="card-product__imgOverlay">
+                                            <li><button><i class="ti-search"></i></button></li>
+                                            <li><button><i class="ti-shopping-cart"></i></button></li>
+                                            <li><button><i class="ti-heart"></i></button></li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-product__title"><a href="#">@dr["ProductName"]</a></h4>
+                                        <p class="card-product__price">Rs = @dr["ProductPrice"]</p>
+                                        <p> @dr["ProductDiscription"]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div>
+            </section>
+            <!-- End Best Seller -->
+        </div>
+
+    </section>
+    <!-- ================ category section end ================= -->
+</div>
+
+

@@ -19,12 +19,14 @@
                         <h5 class="mt-2">State Name</h5>
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter State Name" asp-for="StateName">
+                            <span asp-validation-for="StateName" class="text-danger"></span>
                         </fieldset>
                         <h5 class="mt-2">Select Country</h5>
                         <fieldset class="form-group">
-                            <select class="form-control" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName"))">
+                            <select class="form-control" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName"))" required>
                                 <option>select country</option>
                             </select>
+                            
                         </fieldset>
                     </div>
                 </div>
@@ -41,3 +43,10 @@
    
     </div>
 </form>
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+ }

@@ -19,11 +19,13 @@
                         <h5 class="mt-2">Amount</h5>
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Amount" asp-for="BillAmount">
+                            <span asp-validation-for="BillAmount" class="text-danger"></span>
                         </fieldset>
 
                         <h5 class="mt-2">Status</h5>
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Status" asp-for="BillStatus">
+                            <span asp-validation-for="BillStatus" class="text-danger"></span>
                         </fieldset>
                         <h5 class="mt-2">Customer Name</h5>
                         <fieldset class="form-group">
@@ -31,21 +33,21 @@
                                 <option>select Customer Name</option>
                             </select>
                         </fieldset>
-                        <h5 class="mt-2">Country ID</h5>
+                        <h5 class="mt-2">Country</h5>
                         <fieldset class="form-group">
                             <select class="form-control" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName")) " onchange="fnOnStateChange();">
                                 <option>select country</option>
                             </select>
                         </fieldset>
-                        <h5 class="mt-2">State ID</h5>
+                        <h5 class="mt-2">State</h5>
                         <fieldset class="form-group">
                             <select class="form-control" asp-for="StateID" asp-items="@(new SelectList(ViewBag.StateList,"StateID","StateName"))" onchange="fnOnCityChange();">
                                 <option>select State</option>
                             </select>
                         </fieldset>
-                        <h5 class="mt-2">City ID</h5>
+                        <h5 class="mt-2">City</h5>
                         <fieldset class="form-group">
-                            <select class="form-control" asp-for="CityID" asp-items="@(new SelectList(ViewBag.CityList,"CityID","CityName"))">
+                            <select class="form-control" asp-for="CityID" asp-items="@(new SelectList(ViewBag.CityList,"CityID","CityName"))" >
                                 <option>select City</option>
                             </select>
                         </fieldset>
@@ -128,4 +130,24 @@
             }
         }
     </script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+
+    <script type="text/javascript">
+        function Validate() {
+            var customer = document.getElementById("customer");
+            if (customer.value == "") {
+                //If the "Please Select" option is selected display error.
+                alert("Please select an option!");
+                return false;
+            }
+            return true;
+        }
+    </script>
 }
+
+ 

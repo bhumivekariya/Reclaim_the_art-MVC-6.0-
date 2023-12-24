@@ -93,7 +93,7 @@ namespace Reclaim_the_art.Areas.City.Controllers
 
             List<StateDropDownModel> list1 = new List<StateDropDownModel>();
             ViewBag.StateList = list1;
-            #endregion DropDownForState
+            #endregion
 
             if (CityID != null)
             {

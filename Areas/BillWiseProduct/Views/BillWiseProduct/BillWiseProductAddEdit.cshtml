@@ -19,6 +19,7 @@
                         <h5 class="mt-2">Quantity</h5>
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Quantity" asp-for="Quantity">
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
                         </fieldset>
 
                         <h5 class="mt-2">Bill Status</h5>
@@ -46,4 +47,11 @@
       
     </div>
 </form>
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 

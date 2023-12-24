@@ -17,6 +17,7 @@ namespace Reclaim_the_art.Areas.Country.Controllers
 
         }
         #endregion
+
         #region DELETE
         public IActionResult Delete(int CountryID)
         {
@@ -34,6 +35,7 @@ namespace Reclaim_the_art.Areas.Country.Controllers
 
         }
         #endregion
+
         #region SELECTALL
         public IActionResult Index()
         {

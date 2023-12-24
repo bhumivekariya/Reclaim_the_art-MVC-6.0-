@@ -22,33 +22,39 @@
                         <h5 class="mt-2">Name</h5>
                         <fieldset class="form-group"> 
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Name" asp-for="ProductName">
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
                         </fieldset>
                         <h5 class="mt-2">Picture</h5>
                         <fieldset class="form-group">
                             <input type="file" class="form-control" id="placeholderInput" asp-for="File">
+                            <span asp-validation-for="File" class="text-danger"></span>
                         </fieldset>
                         <h5 class="mt-2">Discription</h5>
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Discription" asp-for="ProductDiscription">
+                            <span asp-validation-for="ProductDiscription" class="text-danger"></span>
                         </fieldset>
                         <h5 class="mt-2">Price</h5>
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Price" asp-for="ProductPrice">
+                            <span asp-validation-for="ProductPrice" class="text-danger"></span>
+
                         </fieldset>
                         <h5 class="mt-2">Discount</h5>
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Discount" asp-for="ProductDiscount">
+                            <span asp-validation-for="ProductDiscount" class="text-danger"></span>
                         </fieldset>
                         <h5 class="mt-2">Product Type</h5>
                         <fieldset class="form-group">
                             <select class="form-control" asp-for="ProductTypeID" asp-items="@(new SelectList(ViewBag.ProductTypelist,"ProductTypeID","ProductType"))">
                                 <option>select Product Type</option>
                             </select>
-                        </fieldset>
+                        </fieldset>ProductDiscount
                         <h5 class="mt-2">Customer Name</h5>
                         <fieldset class="form-group">
                             <select class="form-control" asp-for="CustomerID" asp-items="@(new SelectList(ViewBag.CustomerList,"CustomerID","CustomerName"))">
-                                <option>select Customer Name</option>
+                                <option value="-1">select Customer Name</option>
                             </select>
                         </fieldset>
                     </div>
@@ -67,3 +73,9 @@
     </div>
 </form>
 
+
+    @section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

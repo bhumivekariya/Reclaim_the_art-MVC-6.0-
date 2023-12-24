@@ -1,0 +1,59 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using Reclaim_the_art.Areas.AdminLogin.Controllers;
+@using Reclaim_the_art.Areas.AdminLogin.Models;
+@model AdminLoginModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<link href="~/css/adminlogincss.css" rel="stylesheet" />
+<main class="main">
+	<div class="container">
+		<section class="wrapper">
+			<div class="heading">
+				<h1 class="text text-large">Sign In</h1>
+				<p class="text text-normal">
+					New user? <span><a href="#" class="text text-links">Create an account</a></span>
+				</p>
+			</div>
+			<form method="post" name="signin" class="form" asp-area="AdminLogin" asp-controller="AdminLogin" asp-action="Login">
+				<div class="input-control">
+					<label for="username" class="input-label" hidden>Username</label>
+					<input type="text" name="AdminUserName" id="username" class="input-field" placeholder="Username" asp-for="AdminUserName">
+				</div>
+				<div class="input-control">
+					<label for="password" class="input-label" hidden>Password</label>
+					<input type="password" name="AdminPassWord" id="password" class="input-field" placeholder="Password" asp-for="AdminPassWord">
+				</div>
+				<div class="input-control">
+					<a href="#" class="text text-links">Forgot Password</a>
+					<input type="submit" name="submit" class="input-submit" value="Sign In">
+				</div>
+			</form>
+			<div class="striped">
+				<span class="striped-line"></span>
+				<span class="striped-text">Or</span>
+				<span class="striped-line"></span>
+			</div>
+			<div class="method">
+				<div class="method-control">
+					<a href="#" class="method-action">
+						<i class="ion ion-logo-google"></i>
+						<span>Sign in with Google</span>
+					</a>
+				</div>
+				<div class="method-control">
+					<a href="#" class="method-action">
+						<i class="ion ion-logo-facebook"></i>
+						<span>Sign in with Facebook</span>
+					</a>
+				</div>
+				<div class="method-control">
+					<a href="#" class="method-action">
+						<i class="ion ion-logo-apple"></i>
+						<span>Sign in with Apple</span>
+					</a>
+				</div>
+			</div>
+		</section>
+	</div>
+</main>

@@ -21,10 +21,12 @@
                         <h5 class="mt-2">Name</h5>
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Name" asp-for="CityName">
+                            <span asp-validation-for="CityName" class="text-danger"></span>
                         </fieldset>
                         <h5 class="mt-2">Pincode</h5>
                         <fieldset class="form-group">
                             <input type="text" class="form-control" id="placeholderInput" placeholder="Enter Pincode" asp-for="Pincode">
+                            <span asp-validation-for="Pincode" class="text-danger"></span>
                         </fieldset>
                         <h5 class="mt-2">Select Country</h5>
                         <fieldset class="form-group">
@@ -89,4 +91,7 @@
             }
         }
 </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

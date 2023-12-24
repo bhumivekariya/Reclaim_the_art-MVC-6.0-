@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reclaim The Art - Home</title>
-    <link rel="icon" href="~/img/Fevicon.png" type="image/png">
+    <title>Reclaim The Art</title>
+   
     <link rel="stylesheet" href="~/vendors/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="~/vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="~/vendors/themify-icons/themify-icons.css">
@@ -39,20 +39,19 @@
                                 <a asp-controller="User" asp-action="Shop" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                    aria-expanded="false">SHOP</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="category.html">Home Decore</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="single-product.html">Toys And Tools</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="checkout.html">Lifestyle Products</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="confirmation.html">Stationary</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="cart.html">Event Decor</a></li>
+                                    <li class="nav-item"><a class="nav-link" asp-controller="User" asp-action="HomeDecore">Home Decore</a></li>
+                                    <li class="nav-item"><a class="nav-link" asp-controller="User" asp-action="ToysAndTools">Toys And Tools</a></li>
+                                    <li class="nav-item"><a class="nav-link" asp-controller="User" asp-action="Lifestyle">Lifestyle</a></li>
+                                    <li class="nav-item"><a class="nav-link" asp-controller="User" asp-action="Stationary">Stationary</a></li>
+                                    <li class="nav-item"><a class="nav-link" asp-controller="User" asp-action="EventDecor">Event Decor</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item submenu dropdown">
-                                <a asp-controller ="User" asp-action="Service" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                   aria-expanded="false">
+                           @*  <li class="nav-item submenu dropdown">
+                                <a asp-controller ="User" asp-action="Service" class="nav-link dropdown-toggle">
                                     SERVICES
                                 </a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">ADMIN</a></li>
+                            </li> *@
+                            <li class="nav-item"><a class="nav-link" asp-area="AdminLogin" asp-controller="AdminLogin" asp-action="AdminLogin">ADMIN</a></li>
                         </ul>
 
                         <ul class="nav-shop">
@@ -65,12 +64,6 @@
             </nav>
         </div>
     </header>
-    <div>
-       @RenderBody
-    </div>
-  
-
-
     <script src="~/vendors/jquery/jquery-3.2.1.min.js"></script>
     <script src="~/vendors/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="~/vendors/skrollr.min.js"></script>
@@ -81,5 +74,19 @@
     <script src="~/js/main.js"></script>
 </body>
 </html>
-@RenderBody();
+<div>
+    @RenderBody()
+</div>
 
+
+
+    <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <div style="text-align : center;">
+
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                © 2023 <a class="hover:underline">Reclaim The Art™</a>. All Rights Reserved.
+            </span>
+        </div> 
+        </div>
+    </footer>
